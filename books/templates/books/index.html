@@ -1,0 +1,18 @@
+{% extends "base_books.html" %}
+
+{% block content %}
+    <h2>Books Management System</h2>
+    {%if not model_list%}
+        <h3>Data does not exist.</h3>
+    {%else%}
+       
+
+    <ul>
+        {% for modelname in model_list %}
+            {% with "books:"|add:modelname|lower|add:"_list" as urlvar %}
+                <li><a href="{% url urlvar %}">{{modelname}}</a></li> <!--Model명이 Author이면 urlvar는 "books:author_list"가 됨-->
+            {% endwith %}
+        {% endfor %}
+    </ul>
+    {%endif%}
+{% endblock content %}

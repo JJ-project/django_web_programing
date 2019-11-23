@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls.apps.PollsConfig', #추가
+    #'polls.apps.PollsConfig', #설정 클래스
+    #'books.apps.BooksConfig', #설정 클래스 
+    'polls', #모듈명
+    'books'  #모듈명
 ]
 
 MIDDLEWARE = [
@@ -57,7 +60,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #새로 만든 프로젝트 템플릿 디렉토리를 setting.py파일에 등록해서 장고가 찾을 수 있도록 함
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,3 +125,29 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#장고의 디폴트 설정을 유지하면서 로깅 설정함
+# LOGGING = {
+#     'version' : 1,
+#     'disable_existing_loggers' : False,
+#     'formatters' : {
+#         'verbose' : {
+#             'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+#             'datefmt' : "%d/%b/%Y %H:%M:%S"
+#         },
+#     },
+#     'handlers' : {
+#         'file' : {
+#             'level' : 'DEBUG',
+#             'class' : 'logging.FileHandler',
+#             'filename' : os.path.join(BASE_DIR, 'logs', 'mysite.log'),
+#             'formatter' : 'verbose'
+#         },
+#         'loggers' : {
+#             'polls' : {
+#                 'handlers' : ['file'],
+#                 'level' : 'DEBUG',
+#             },
+#         },
+#     }
+# }
