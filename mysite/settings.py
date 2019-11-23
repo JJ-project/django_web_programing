@@ -27,7 +27,7 @@ DEBUG = True
 #DEBUG모드가 True면 개발 모드, False면 운영 모드
 #운영 모드인 경우 ALOWED_HOST는 반드시 서버의 IP나 도메인을 지정해줘야 함
 #개발 모드이면 값을 지정하지 않아도 ['localhost',127.0.0.1]로 간주 됨
-ALLOWED_HOSTS = ['localhost','127.0.0.1']
+ALLOWED_HOSTS = ['jj-project.github.io/django_web_programing/','localhost','127.0.0.1']
 
 # Application definition
 
